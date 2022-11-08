@@ -91,11 +91,12 @@ class RecipeCard extends HTMLElement {
     time {
       color: #70757A;
       font-size: 12px;
-    } `;
+    } 
+    `;
     styles.innerHTML = styleInfo;
     // A5. TODO - Append the <style> and <article> elements to the Shadow DOM
-    this.shadowRoot.appendChild(article);
-    this.shadowRoot.appendChild(styles);
+    this.shadow.appendChild(article);
+    this.shadow.appendChild(styles);
   }
   
   /**
@@ -124,11 +125,19 @@ class RecipeCard extends HTMLElement {
     if (!data) return;
 
     // A6. TODO - Select the <article> we added to the Shadow DOM in the constructor
+    const rCard = this.shadowRoot.querySelector("ARTICLE");
     // A7. TODO - Set the contents of the <article> with the <article> template given in
     //           cardTemplate.html and the data passed in (You should only have one <article>,
     //           do not nest an <article> inside another <article>). You should use Template
     //           literals (tempalte strings) and element.innerHTML for this.
+    const insideData = `
+    <img src=${data.imgSrc}
+    alt=${data.imgAlt}>
+    <p class="title"> 
+    `;
+    rCard.innerHTML = insideData;
   }
 }
 // A8. TODO - Define the Class as a customElement so that you can create
 //           'recipe-card' elements
+customElements.define('recipe-card', RecipeCard);
