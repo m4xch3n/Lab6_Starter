@@ -94,7 +94,7 @@ class RecipeCard extends HTMLElement {
     } `;
     styles.innerHTML = styleInfo;
     // A5. TODO - Append the <style> and <article> elements to the Shadow DOM
-    this.shadowRoot.appendChild(article)
+    this.shadowRoot.appendChild(article);
     this.shadowRoot.appendChild(styles);
   }
   
